@@ -6,7 +6,7 @@
         Height="500" Width="500">
     <StackPanel>
         <circleSelector:TimePicker x:Name="pickerTP" 
-            MinutesFaceColor="LightBlue" HoursFaceColor="LightSkyBlue"
+            MinutesFaceColor="#FF3BD1FF" HoursFaceColor="#FF1CACD9"
             MinutesFaceBackgroundColor="#FFDDDDDD" HoursFaceBackgroundColor="#FFCCCCCC"/>
         <TextBlock HorizontalAlignment="Center">
             <Run Text="Current time selection: "/>

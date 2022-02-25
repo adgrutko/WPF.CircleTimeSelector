@@ -40,7 +40,7 @@
             _minutesVM.Configure(c.Minutes);
             _minutesVM.ExternalMouseMove += HandleMinutesMouseMove;
             _displayVM = c.FaceDisplayViewModel;
-            _displayVM.Configure("OD", SelectedTime);
+            _displayVM.Configure("FROM", SelectedTime);
             SelectedTime = c.InitialTime;
         }
 
