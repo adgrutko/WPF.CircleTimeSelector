@@ -2,6 +2,8 @@
 {
     public class ArcViewModel : BaseViewModel
     {
+        public int StrokeThickness { get; set; } = 50;
+
         private string? _strokeColorHex;
         public string? StrokeColorHex
         {
@@ -173,9 +175,9 @@
             Radius = c.Radius;
             NumberOfUnits = c.NumberOfUnits;
 
-            ArcWidth = Radius * 2 + Const.StrokeThickness;
-            ArcHeight = Radius * 2 + Const.StrokeThickness;
-            ArcMargin = new Margin(Const.StrokeThickness, Const.StrokeThickness, 0, 0);
+            ArcWidth = Radius * 2 + StrokeThickness;
+            ArcHeight = Radius * 2 + StrokeThickness;
+            ArcMargin = new Margin(StrokeThickness, StrokeThickness, 0, 0);
             ArcStartPoint = new Point(Radius, 0);
             ArcSize = new Size(Radius, Radius);
         }
