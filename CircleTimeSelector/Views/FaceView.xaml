@@ -1,0 +1,10 @@
+﻿<UserControl x:Class="CircleTimeSelector.FaceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CircleTimeSelector"
+             xmlns:core="clr-namespace:CircleTimeSelector.Core;assembly=CircleTimeSelector.Core">
+    <Grid Width="{Binding Source={x:Static core:Const.DefaultWidth}}" Height="{Binding Source={x:Static core:Const.DefaultHeight}}">
+        <local:ArcView x:Name="arcV"/>
+        <local:PickerView x:Name="pickerV" />
+    </Grid>
+</UserControl>

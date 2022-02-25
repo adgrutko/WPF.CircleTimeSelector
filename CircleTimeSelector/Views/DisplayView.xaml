@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="CircleTimeSelector.DisplayView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Border Background="White" CornerRadius="200" Width="100" Height="100"/>
+        <Path Fill="Black">
+            <Path.Data>
+                <PathGeometry>
+                    <PathFigure StartPoint="99,39">
+                        <ArcSegment Size="50,48" Point="0.7,39"/>
+                    </PathFigure>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <StackPanel Margin="10">
+            <TextBlock x:Name="titleTB" Text="{Binding TitleString}" Foreground="White" FontSize="20" HorizontalAlignment="Center" />
+            <TextBlock x:Name="timeTB" Text="{Binding TimeString}" Foreground="Black" FontSize="35" HorizontalAlignment="Center" />
+        </StackPanel>
+    </Grid>
+</UserControl>

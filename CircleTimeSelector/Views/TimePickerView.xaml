@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="CircleTimeSelector.TimePickerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CircleTimeSelector"
+             xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:core="clr-namespace:CircleTimeSelector.Core;assembly=CircleTimeSelector.Core">
+    <Grid Width="{Binding Source={x:Static core:Const.DefaultWidth}}" Height="{Binding Source={x:Static core:Const.DefaultHeight}}">
+        <behaviors:Interaction.Behaviors>
+            <local:MouseBehaviour MouseX="{Binding X, Mode=OneWayToSource}" MouseY="{Binding Y, Mode=OneWayToSource}" />
+        </behaviors:Interaction.Behaviors>
+        <behaviors:Interaction.Triggers>
+            <behaviors:EventTrigger EventName="MouseLeftButtonUp">
+                <behaviors:InvokeCommandAction Command="{Binding Commands[FinishSelecting]}" />
+            </behaviors:EventTrigger>
+            <behaviors:EventTrigger EventName="MouseMove">
+                <behaviors:InvokeCommandAction Command="{Binding Commands[HandleMouseMove]}" />
+            </behaviors:EventTrigger>
+        </behaviors:Interaction.Triggers>
+        <!-- minuty -->
+        <local:FaceView x:Name="minutesF" HorizontalAlignment="Center" VerticalAlignment="Center">
+        </local:FaceView>
+            <!-- godziny -->
+        <local:FaceView x:Name="hoursF" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <behaviors:Interaction.Triggers>
+                <behaviors:EventTrigger EventName="MouseMove">
+                    <behaviors:InvokeCommandAction Command="{Binding Commands[HandleHoursMouseMove]}" />
+                </behaviors:EventTrigger>
+            </behaviors:Interaction.Triggers>
+        </local:FaceView>
+
+        <!-- wyswietlacz -->
+        <local:DisplayView x:Name="displayD" HorizontalAlignment="Center" VerticalAlignment="Center" />
+    </Grid>
+</UserControl>

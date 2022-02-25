@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="CircleTimeSelector.ArcView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:local="clr-namespace:CircleTimeSelector"
+             xmlns:core="clr-namespace:CircleTimeSelector.Core;assembly=CircleTimeSelector.Core">
+    <UserControl.Resources>
+        <local:HexToColorConverter x:Key="HexToColorConverter"/>
+        <local:MarginConverter x:Key="MarginConverter"/>
+        <local:PointConverter x:Key="PointConverter"/>
+        <local:SizeConverter x:Key="SizeConverter"/>
+    </UserControl.Resources>
+    <Grid Width="{Binding Source={x:Static core:Const.DefaultWidth}}" Height="{Binding Source={x:Static core:Const.DefaultHeight}}">
+        <Border CornerRadius="200"
+                Background="{Binding BackgroundColorHex, Converter={StaticResource HexToColorConverter}}"
+                Width="{Binding Width}"
+                Height="{Binding Height}">
+            <behaviors:Interaction.Triggers>
+                <behaviors:EventTrigger EventName="MouseLeftButtonDown" >
+                    <behaviors:InvokeCommandAction Command="{Binding Commands[ArcClickCommand]}" />
+                </behaviors:EventTrigger>
+            </behaviors:Interaction.Triggers>
+        </Border>
+        <Path
+            HorizontalAlignment="Center" VerticalAlignment="Center"
+            Stroke="{Binding StrokeColorHex, Converter={StaticResource HexToColorConverter}}"
+            StrokeThickness="{Binding StrokeThickness}"
+            Width="{Binding ArcWidth}"
+            Height="{Binding ArcHeight}"
+            Margin="{Binding ArcMargin, Converter={StaticResource MarginConverter}}">
+            <behaviors:Interaction.Triggers>
+                <behaviors:EventTrigger EventName="MouseLeftButtonDown" >
+                    <behaviors:InvokeCommandAction Command="{Binding Commands[ArcClickCommand]}" />
+                </behaviors:EventTrigger>
+            </behaviors:Interaction.Triggers>
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="{Binding ArcStartPoint, Converter={StaticResource PointConverter}}">
+                                <PathFigure.Segments>
+                                    <PathSegmentCollection>
+                                        <ArcSegment SweepDirection="Clockwise" 
+                                             Size="{Binding Path=ArcSize, Converter={StaticResource SizeConverter}}" 
+                                             Point="{Binding Path=ArcEndPoint, Converter={StaticResource PointConverter}}" 
+                                             IsLargeArc="{Binding ArcLarge}"/>
+                                    </PathSegmentCollection>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+    </Grid>
+</UserControl>

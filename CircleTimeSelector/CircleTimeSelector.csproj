@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\picker.png" />
+    <None Remove="Images\picker.svg" />
+    <None Remove="Images\pickerOnhold.png" />
+    <None Remove="Images\pickerOnhold.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CircleTimeSelector.Core\CircleTimeSelector.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\picker.png" />
+    <Resource Include="Images\picker.svg" />
+    <Resource Include="Images\pickerOnhold.png" />
+    <Resource Include="Images\pickerOnhold.svg" />
+  </ItemGroup>
+
+</Project>
