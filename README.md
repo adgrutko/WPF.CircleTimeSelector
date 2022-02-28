@@ -4,7 +4,9 @@ By finger or by mouse.
 
 ![Demo Application Look](https://i.ibb.co/8x8svBk/WPF-Circle-Time-Selector.png)
 
-Project in develop. The control will work with the code of WPF and Xamarin.Forms applications, and  demonstrate the use of common logic and ViewModel layer for applications running on different platforms: Windows, Linux, Mac OSX, Android and iOS.
+Project in development. Plans for near future: The control will work with WPF and Xamarin.Forms applications  
+and demonstrate the use of logic and ViewModel layer for applications running on different platforms:  
+Windows, Linux, Mac OSX, Android and iOS.
 
 How to use:
 1) Include a reference to CircleTimeSelector
