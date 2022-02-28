@@ -21,6 +21,7 @@ namespace CircleTimeSelector
                 minutesF.DataContext as FaceViewModel,
                 displayD.DataContext as DisplayViewModel,
                 time,
+                c.DisplayTitle,
                 new FaceConfiguration(
                     c.HoursFaceColorHex, c.HoursFaceBackgroundColorHex,
                     Const.HoursFaceWidth, Const.HoursFaceHeight,
@@ -31,6 +32,7 @@ namespace CircleTimeSelector
                     Const.MinutesInHour, Const.MinutesRadius, time.Minutes));
             (DataContext as TimePickerViewModel)?.Configure(configuration);
             (DataContext as TimePickerViewModel).OnTimeChange += (TimeSpan t) => onTimeChange?.Invoke(t);
+
         }
     }
 }

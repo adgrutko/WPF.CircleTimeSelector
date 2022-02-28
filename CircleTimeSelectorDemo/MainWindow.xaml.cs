@@ -25,12 +25,14 @@ namespace CircleTimeSelectorDemo
         {
             DataContext = this;
             InitializeComponent();
+            Time = DateTime.Now.TimeOfDay;
             pickerTP.OnTimeChange += (TimeSpan time) =>
             {
                 Time = time;
                 if (time == new TimeSpan(12, 0, 0))
                     MessageBox.Show("Midday!");
             };
+
         }
 
     }

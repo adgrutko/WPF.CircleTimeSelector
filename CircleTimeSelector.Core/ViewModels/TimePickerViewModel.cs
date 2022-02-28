@@ -18,6 +18,7 @@
                 _selectedTime = value;
                 _hoursVM.SelectedValue = SelectedTime.Hours;
                 _minutesVM.SelectedValue = SelectedTime.Minutes;
+                OnTimeChange?.Invoke(SelectedTime);
             }
         }
 
@@ -40,7 +41,7 @@
             _minutesVM.Configure(c.Minutes);
             _minutesVM.ExternalMouseMove += HandleMinutesMouseMove;
             _displayVM = c.FaceDisplayViewModel;
-            _displayVM.Configure("FROM", SelectedTime);
+            _displayVM.Configure(c.DisplayTitle, SelectedTime);
             SelectedTime = c.InitialTime;
         }
 
@@ -56,8 +57,6 @@
             {
                 SelectedTime = new TimeSpan(_hoursVM.SelectedValue, _minutesVM.SelectedValue, 0);
                 _displayVM.Time = SelectedTime;
-                Console.WriteLine(SelectedTime.ToString());
-                OnTimeChange?.Invoke(SelectedTime);
             }
         }
 

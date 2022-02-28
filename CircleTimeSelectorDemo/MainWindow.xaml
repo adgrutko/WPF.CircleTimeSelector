@@ -6,6 +6,7 @@
         Height="500" Width="500">
     <StackPanel>
         <circleSelector:TimePicker x:Name="pickerTP" 
+            Title="from"
             MinutesFaceColor="#FF3BD1FF" HoursFaceColor="#FF1CACD9"
             MinutesFaceBackgroundColor="#FFDDDDDD" HoursFaceBackgroundColor="#FFCCCCCC"/>
         <TextBlock HorizontalAlignment="Center">
